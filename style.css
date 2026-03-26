@@ -1,0 +1,262 @@
+:root {
+	color-scheme: light dark;
+	font-family: system-ui, -apple-system, sans-serif;
+	--color-primary: #6366f1;
+	--color-primary-light: #e0e7ff;
+	--color-secondary: #a78bfa;
+	--color-text: #1f2937;
+	--color-text-light: #6b7280;
+	--color-border: #e5e7eb;
+	--color-bg: #f9fafb;
+	--color-positive: #059669;
+	--color-negative: #dc2626;
+	--spacing: 1rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--color-bg);
+	color: var(--color-text);
+}
+
+.dashboard {
+	display: grid;
+	grid-template-columns: 280px 1fr;
+	min-height: 100vh;
+	gap: 0;
+}
+
+/* Sidebar */
+.sidebar {
+	background: white;
+	border-right: 1px solid var(--color-border);
+	padding: var(--spacing) 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar-header {
+	padding: 0 var(--spacing);
+	margin-bottom: 2rem;
+}
+
+.logo {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-primary);
+	letter-spacing: -0.5px;
+}
+
+.sidebar-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0 0.5rem;
+}
+
+.nav-item {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 1rem;
+	color: var(--color-text-light);
+	text-decoration: none;
+	border-radius: 8px;
+	transition: all 0.2s ease;
+	font-size: 0.95rem;
+}
+
+.nav-item:hover {
+	background: var(--color-bg);
+	color: var(--color-text);
+}
+
+.nav-item.active {
+	background: var(--color-primary-light);
+	color: #4f46e5;
+	font-weight: 600;
+}
+
+.nav-item i {
+	width: 20px;
+	height: 20px;
+}
+
+/* Main Content */
+.main-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.top-header {
+	background: white;
+	border-bottom: 1px solid var(--color-border);
+	padding: 1.5rem var(--spacing);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-title {
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--color-text);
+}
+
+.header-actions {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.btn-icon {
+	width: 40px;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	background: var(--color-bg);
+	color: var(--color-text-light);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-icon:hover {
+	background: var(--color-border);
+	color: var(--color-text);
+}
+
+.btn-icon i {
+	width: 24px;
+	height: 24px;
+}
+
+/* Content Area */
+.content-area {
+	padding: 2rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.metrics-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+}
+
+.metric-card {
+	background: white;
+	padding: 1.5rem;
+	border-radius: 12px;
+	border: 1px solid var(--color-border);
+	transition: all 0.2s ease;
+}
+
+.metric-card:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	border-color: var(--color-primary-light);
+}
+
+.metric-label {
+	font-size: 0.875rem;
+	color: var(--color-text-light);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	margin-bottom: 0.5rem;
+}
+
+.metric-value {
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--color-text);
+	margin-bottom: 0.75rem;
+}
+
+.metric-change {
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.metric-change.positive {
+	color: var(--color-positive);
+}
+
+.metric-change.negative {
+	color: var(--color-negative);
+}
+
+/* Chart Section */
+.chart-section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	align-items: stretch;
+}
+
+.chart-container {
+	background: white;
+	padding: 2rem;
+	border-radius: 12px;
+	border: 1px solid var(--color-border);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.chart-container canvas {
+	max-width: 100%;
+	height: auto;
+}
+
+.chart-title {
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: var(--color-text);
+	margin-bottom: 1.5rem;
+	width: 100%;
+	text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.dashboard {
+		grid-template-columns: 1fr;
+	}
+
+	.sidebar {
+		border-right: none;
+		border-bottom: 1px solid var(--color-border);
+		padding: 1rem 0;
+	}
+
+	.sidebar-nav {
+		flex-direction: row;
+		overflow-x: auto;
+		padding: 0 var(--spacing);
+	}
+
+	.header-title {
+		font-size: 1.25rem;
+	}
+
+	.metrics-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.chart-section {
+		grid-template-columns: 1fr;
+	}
+
+	.content-area {
+		padding: 1.5rem;
+	}
+}

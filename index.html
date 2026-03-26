@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+	<aside class="sidebar">
+		<div class="sidebar-header">
+			<div class="logo">Analytics</div>
+		</div>
+		<nav class="sidebar-nav">
+			<a href="#" class="nav-item active">
+				<i data-lucide="bar-chart-3"></i>
+				<span>Dashboard</span>
+			</a>
+			<a href="#" class="nav-item">
+				<i data-lucide="line-chart"></i>
+				<span>Reports</span>
+			</a>
+			<a href="#" class="nav-item">
+				<i data-lucide="settings"></i>
+				<span>Settings</span>
+			</a>
+			<a href="#" class="nav-item">
+				<i data-lucide="users"></i>
+				<span>Team</span>
+			</a>
+		</nav>
+	</aside>
+
+	<main class="main-content">
+		<header class="top-header">
+			<div class="header-title">Performance Overview</div>
+			<div class="header-actions">
+				<button class="btn-icon" aria-label="Notifications">
+          <i data-lucide="bell"></i>
+        </button>
+				<button class="btn-icon" aria-label="User menu">
+          <i data-lucide="user-circle"></i>
+        </button>
+			</div>
+		</header>
+
+		<section class="content-area">
+			<div class="metrics-grid">
+				<div class="metric-card">
+					<div class="metric-label">Total Revenue</div>
+					<div class="metric-value">$124,850</div>
+					<div class="metric-change positive">+12.5% from last month</div>
+				</div>
+				<div class="metric-card">
+					<div class="metric-label">Users</div>
+					<div class="metric-value">8,420</div>
+					<div class="metric-change positive">+3.2% from last month</div>
+				</div>
+				<div class="metric-card">
+					<div class="metric-label">Conversion Rate</div>
+					<div class="metric-value">3.84%</div>
+					<div class="metric-change negative">-0.5% from last month</div>
+				</div>
+			</div>
+
+			<div class="chart-section">
+				<div class="chart-container">
+					<div class="chart-title">Market Distribution</div>
+					<canvas id="pieChart"></canvas>
+				</div>
+
+				<div class="chart-container">
+					<div class="chart-title">Segment Performance</div>
+					<canvas id="barChart"></canvas>
+				</div>
+			</div>
+		</section>
+	</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

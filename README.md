@@ -1,2 +1,3 @@
-# blnq-analytics-dashboardjjjjj
-Created with Blnq Studio
+# Analytics Dashboard
+
+Created with [Blnq Studio](https://blnq.studio/e/CjQPE7D)
